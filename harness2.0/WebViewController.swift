@@ -28,22 +28,22 @@ class WebViewController: UIViewController {
     }
 
 
-    override func viewDidAppear(animated: Bool) {
-        let frame = CGRectMake(0, 0, container.bounds.width, container.bounds.height)
+    override func viewDidAppear(_ animated: Bool) {
+        let frame = CGRect(x: 0, y: 0, width: container.bounds.width, height: container.bounds.height)
         webView.frame = frame
         
         loadRequest(sites[indexPath])
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let svc = segue.destinationViewController as? InfoViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let svc = segue.destination as? InfoViewController
         svc?.indexPath = indexPath
         svc?.bannerImg = bannerImg
     }
     
-    func loadRequest(urlStr:String) {
-        let url = NSURL(string: urlStr)!
-        let request = NSURLRequest(URL: url)
-        webView.loadRequest(request)
+    func loadRequest(_ urlStr:String) {
+        let url = URL(string: urlStr)!
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
 }

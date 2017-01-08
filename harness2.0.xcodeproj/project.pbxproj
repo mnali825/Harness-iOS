@@ -239,15 +239,18 @@
 					E9CC08611C8F65E600BD4730 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = RJNMP7GN27;
+						LastSwiftMigration = 0820;
 					};
 					E9CC08751C8F65E800BD4730 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = RJNMP7GN27;
+						LastSwiftMigration = 0820;
 						TestTargetID = E9CC08611C8F65E600BD4730;
 					};
 					E9CC08801C8F65E800BD4730 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = RJNMP7GN27;
+						LastSwiftMigration = 0820;
 						TestTargetID = E9CC08611C8F65E600BD4730;
 					};
 				};
@@ -458,6 +461,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.herban.harness2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -469,6 +473,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.herban.harness2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -480,6 +485,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.herban.harness2-0Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/harness2.0.app/harness2.0";
 			};
 			name = Debug;
@@ -492,6 +498,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.herban.harness2-0Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/harness2.0.app/harness2.0";
 			};
 			name = Release;
@@ -503,6 +510,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.herban.harness2-0UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = harness2.0;
 				USES_XCTRUNNER = YES;
 			};
@@ -515,6 +523,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.herban.harness2-0UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = harness2.0;
 				USES_XCTRUNNER = YES;
 			};

@@ -38,15 +38,15 @@ class ViewController: UIViewController {
         images = [wind, geo, hydro, nuke, solar, bio, gas, coal]
     }
     
-    @IBAction func energyTypePressed(sender: UIButton) {
+    @IBAction func energyTypePressed(_ sender: UIButton) {
         indexPath = sender.tag
         //currentImage = sender.currentBackgroundImage
-        performSegueWithIdentifier("Energy", sender: nil)
+        performSegue(withIdentifier: "Energy", sender: nil)
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let navVC = segue.destinationViewController as? UINavigationController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navVC = segue.destination as? UINavigationController
         let svc = navVC!.topViewController as? InfoViewController
         
         svc?.indexPath = indexPath

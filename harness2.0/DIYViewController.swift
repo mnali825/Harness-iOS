@@ -30,19 +30,19 @@ class DIYViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     //var instructables:[Int:[String]]!
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCellWithIdentifier("Instructable") as? DIYTableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "Instructable") as? DIYTableViewCell {
             return cell
         } else {
             return DIYTableViewCell()
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1//instructables.count
     }
     
@@ -55,12 +55,12 @@ class DIYViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
 
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let svc = segue.destinationViewController as? InfoViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let svc = segue.destination as? InfoViewController
         svc?.bannerImg = bannerImg
         svc?.indexPath = indexPath
         svc?.funFacts = funFacts

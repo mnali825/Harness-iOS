@@ -10,10 +10,11 @@ import UIKit
 
 extension Double {
     /// Rounds the double to decimal places value
-    func roundToPlaces(places:Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return round(self * divisor) / divisor
-    }
+//    mutating func roundToPlaces(_ places:Int) -> Double {
+//        let divisor = pow(10.0, Double(places))
+//        var v = self
+//        return v.round() / divisor
+//    }
 }
 
 class InfoViewController: UIViewController {
@@ -37,7 +38,7 @@ class InfoViewController: UIViewController {
     var currentImage:UIImage!
 
     let HEIGHT:CGFloat = 50
-    let screenSize: CGRect = UIScreen.mainScreen().bounds
+    let screenSize: CGRect = UIScreen.main.bounds
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,7 @@ class InfoViewController: UIViewController {
         let screenWidth = screenSize.width - 70
         for fact in funFacts {
             
-            let frame = CGRectMake(-screenWidth+(screenWidth * CGFloat(x)), 5, screenWidth, HEIGHT)
+            let frame = CGRect(x: -screenWidth+(screenWidth * CGFloat(x)), y: 5, width: screenWidth, height: HEIGHT)
             let label = UILabel(frame: frame)
             
             //let leadingConstraint = NSLayoutConstraint(item: label, attribute: .Leading, relatedBy: .Equal, toItem: scrollView, attribute: .Leading, multiplier: 1, constant: 8)
@@ -56,36 +57,36 @@ class InfoViewController: UIViewController {
             //label.addConstraint(leadingConstraint)
             //label.addConstraint(trailingConstraint)
 
-            label.textAlignment = NSTextAlignment.Center
-            label.textColor = UIColor.whiteColor()
+            label.textAlignment = NSTextAlignment.center
+            label.textColor = UIColor.white
             label.numberOfLines = 2
             label.minimumScaleFactor = 0.5
             label.adjustsFontSizeToFitWidth = true
             label.text = fact
             scrollView.addSubview(label)
-            x++
+            x += 1
         }
         
-        scrollView.contentSize = CGSizeMake(screenWidth * CGFloat(funFacts.count), scrollView.contentSize.height)
+        scrollView.contentSize = CGSize(width: screenWidth * CGFloat(funFacts.count), height: scrollView.contentSize.height)
         
         efficiencyLabel.text = "#\(indexPath+1)"
         costLabel.text = "#\(cost[indexPath])"
         efficiencyInfo.text = "\(energyType[indexPath]) power retains \(efficiencyArray[indexPath])% of the energy input when converted to electricity"
-        let yearlyCost:Double = (costArray[indexPath]*10.932).roundToPlaces(2)
+        let yearlyCost = costArray[indexPath] * 10.932
         costInfo.text = "It costs $\(yearlyCost) per year to power an average american home"
-        let kwhCost:Double = (costArray[indexPath]/1000).roundToPlaces(2)
+        let kwhCost:Double = costArray[indexPath] / 1000
         kwhCostLabel.text = "$\(kwhCost)"
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
 
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let svc = segue.destinationViewController as? WebViewController
-        let svcDIY = segue.destinationViewController as? DIYViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let svc = segue.destination as? WebViewController
+        let svcDIY = segue.destination as? DIYViewController
         
         svc?.indexPath = indexPath
         svc?.bannerImg = bannerImg
